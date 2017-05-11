@@ -20,7 +20,6 @@ router.get('/', function (req, res) {
 
 
 
-
 router.get('/searchresults', function (req, res) {
   db.getRecipes(req.query,req.app.get('connection')) //  use a function called getRecipes. function needs to return  an object containing recipes
     .then(function (recipes) {
@@ -41,6 +40,5 @@ router.get('/recipe/:id', function (req, res) {
   })
 })
 
-router.get()
 
 module.exports = router

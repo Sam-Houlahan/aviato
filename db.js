@@ -15,7 +15,6 @@ function getRecipe (id, connection) {
       recipe = recipe[0]
       return getIngredients(id, connection)
         .then(ingredients => {
-          console.log(ingredients)
           recipe.ingredients = ingredients
           return recipe
         })

@@ -49,7 +49,7 @@ router.post('/search', function (req,res) {
     dairyfree: req.body.dairyfree
   }
   console.log('search query object is: ' + searchQuery)
-  res.redirect('/searchresults' + getQueryString(req.query))
+  res.redirect('/searchresults' + getQueryString(req.body))
 
   function getQueryString(query) {
     let str = '?'

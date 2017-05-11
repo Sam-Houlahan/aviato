@@ -39,7 +39,7 @@ router.get('/recipe/:id', function (req, res) {
 })
 
 
-router.post('/', function (req,res) {
+router.post('/search', function (req,res) {
 // save the details of what was entered in search
   let searchQuery = {
     keyword: req.body.keyword,

@@ -15,6 +15,7 @@ function getRecipe (id, connection) {
       recipe = recipe[0]
       return getIngredients(id, connection)
         .then(ingredients => {
+          console.log(ingredients)
           recipe.ingredients = ingredients
           return recipe
         })
@@ -29,12 +30,12 @@ function getIngredients (id, connection) {
 }
 
 function getRecipeDetails (id, connection) {
-  return connection('recipe')
+  return connection('recipes')
     .where('id', id)
     .select()
 }
 
 function getAllRecipes (connection) {
-  return connection('recipe')
+  return connection('recipes')
     .select()
 }

@@ -1,6 +1,7 @@
 module.exports = {
   getRecipe: getRecipe,
-  getRecipes: getRecipes
+  getRecipes: getRecipes,
+  getAllIngredients
 }
 
 function getRecipes (query, connection) {
@@ -36,5 +37,10 @@ function getRecipeDetails (id, connection) {
 
 function getAllRecipes (connection) {
   return connection('recipe')
+    .select()
+}
+
+function getAllIngredients (connection) {
+  return connection('ingredients')
     .select()
 }

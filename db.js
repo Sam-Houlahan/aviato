@@ -4,7 +4,8 @@ module.exports = {
 }
 
 function getRecipes (query, connection) {
-  return connection()
+  return getAllRecipes(connection)
+    .then()
 }
 
 function getRecipe (id, connection) {
@@ -30,5 +31,10 @@ function getIngredients (id, connection) {
 function getRecipeDetails (id, connection) {
   return connection('recipe')
     .where('id', id)
+    .select()
+}
+
+function getAllRecipes (connection) {
+  return connection('recipe')
     .select()
 }

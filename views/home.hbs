@@ -1,0 +1,38 @@
+<div class="title">
+    <h1 class="maintitle">Recipe Book</h1>
+</div>
+<div class="subtitle">
+    <h2 class="searchtitle">Search for Recipes</h2>
+</div>
+<div class="search">
+    <form class="searchform" action="/search" method="post">
+        <div class="keywordsearch">
+            <label for="keyword">Keyword:</label>
+            <input type="text" name="keyword" id="keyword" value="">
+        </div>
+        <div class="leftcolumn">
+            <h4>Length of time</h4>
+            <input type="radio" name="time" id="30min" value="30min"></input><label for="30min">&lt; 30 min</label>
+            <input type="radio" name="time" id="60min" value="60min"></input><label for="60min">30 min to 1 hour</label>
+            <input type="radio" name="time" id="90min" value="90min"></input><label for="90min">1 to 1.5 hours</label>
+            <input type="radio" name="time" id="90plus" value="90plus"></input><label for="90plus">&gt; 1.5 hours</label>
+        </div>
+        <div class="rightcolumn">
+            <h4>Other options</h4>
+            <input type="checkbox" name="meat" id="meat" value="meat"></input><label for="meat">Vegetarian</label>
+            <input type="checkbox" name="gluten" id="gluten" value="gluten"></input><label for="gluten">Gluten Free</label>
+            <input type="checkbox" name="dairy" id="dairy" value="dairy"></input><label for="dairy">Dairy Free</label>
+        </div>
+        <div class="submit">
+            <input type="submit" name="" value="Search">
+        </div>
+    </form>
+</div>
+<div class="topranked">
+    {{#each topranked}}
+        <div class="recipepic">
+            <img src="{{photo}}">
+        </div>
+    {{/each}}
+</div>
+{{> footer}}

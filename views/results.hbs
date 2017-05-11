@@ -1,0 +1,19 @@
+<div class="title">
+    <h1 class="maintitle">Recipe Book</h1>
+</div>
+<div class="subtitle">
+    <h2 class="searchtitle">Search Results</h2>
+</div>
+<div class="mainresults">
+    {{#each results}}
+        <div class="result">
+            <h4>{{title}}</h4>
+            {{#if meat}}Vegetarian{{/if}}
+            {{#if gluten}}Gluten Free{{/if}}
+            {{#if dairy}}Dairy Free{{/if}}
+            <p>{{description}}
+              {{photo}}
+        </div>
+    {{/each}}
+</div>
+{{> footer}}

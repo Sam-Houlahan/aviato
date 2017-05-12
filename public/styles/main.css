@@ -1,0 +1,76 @@
+* {
+  /*border: thin solid black;*/
+
+}
+
+.starter-template{
+  padding: 40px 15px;
+
+}
+.maintitle {
+font-size: 6rem;
+font-family: Montserrat;
+text-align: center;
+color: white;
+}
+
+.subtitle {
+color: black;
+}
+
+.searchtitle {
+  color: grey;
+}
+p {
+  color: darkGrey;
+}
+.container {
+  background: #cce6ff;
+  text-align: center;
+  /*padding-bottom: 100px;*/
+}
+
+.footer {
+/*padding-top: 100px;*/
+}
+
+div.search{
+  padding-bottom: 100px;
+}
+
+.keywordsearch {
+  margin-bottom: 25px;
+}
+
+.submit {
+  margin-top: 25px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #cce6ff;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}

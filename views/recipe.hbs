@@ -1,18 +1,16 @@
-<div class="title">
-    <h1 class="maintitle">Recipe Book</h1>
-</div>
+{{> header}}
 <div class="subtitle">
     <h2 class="searchtitle">{{title}}</h2>
 </div>
-<div class="description"><p>Description</p></div>
+<div class="description"><p>{{description}}</p></div>
 <div class="time"><p>{{time}}</p></div>
 <div class="ingredients">
-    {{#each}}
+    {{#each ingredients}}
         <div class="ingredient">
             <p>{{quantity}} {{name}}, {{description}}
         </div>
     {{/each}}
 </div>
 <div class="instructions">
-    <p>{{Instructions}}</p>
+    <p>{{instructions}}</p>
 </div>

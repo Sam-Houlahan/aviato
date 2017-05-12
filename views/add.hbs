@@ -1,7 +1,13 @@
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="functions.js" charset="utf-8"></script>
 <form class="add" action="/" method="post">
+
+{{> header}}
+<form class="add" action="/add" method="post">
+
+
   Title: <input type="text" name="title" >
   Time: <input type="text" name="time" >
   <div id="ingredientList">
@@ -18,9 +24,9 @@
   <button type="button" name="add" id ='button'onclick ="addIngredient()">Add ingredient</button>
 
   </div>
+
   Photo Url: <input type="text" name="photo" ><br>
   Recipe Description: <input type="text" name="description" >
-
     <br><br>Instructions:<br><textarea rows="4" cols="50" name="content"></textarea>
         <br><button type="submit" name="submit">Submit Recipe</button>
 </form>

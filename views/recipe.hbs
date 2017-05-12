@@ -4,7 +4,9 @@
 </div>
 <div class="description"><p>{{description}}</p></div>
   <img class="resultsphoto" src='/{{photo}}'>
+  <p class='header'>Time:</p>
 <div class="time"><p>{{time}}</p></div>
+<p class='header'>Ingredients:</p>
 <div class="ingredients">
     {{#each ingredients}}
         <div class="ingredient">
@@ -12,6 +14,7 @@
         </div>
     {{/each}}
 </div>
+<p class="header">Intructions:</p>
 <div class="instructions">
     <p>{{{escapeLine instructions}}}</p>
 </div>

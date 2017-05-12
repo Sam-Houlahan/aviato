@@ -6,7 +6,6 @@ module.exports = {
 }
 
 function getRecipes (query, connection) {
-  console.log(query)
   return getEverything(connection)
     .then(table => {
       if (query.keyword) {
@@ -145,10 +144,15 @@ function addRecipe (form, connection) {
             let ingredientId = form.ingredients[i]
             if (table.includes(Number(ingredientId))) {
               ingredientId = Number(ingredientId)
-              addToJoinTable({recipe_id: id, ingredient_id: ingredientId, quantity: form['quantity' + ingredientId], description: form['description' + ingredientId]}, connection)
+              let ingredientObj = {}
+              ingredientObj.recipe_id = id
+              ingredientObj.ingredient_id = ingredientId
+              ingredientObj.quantity = form['quantity' + ingredientId]
+              ingredientObj.description = form['description' + ingredientId]
+              addToJoinTable(ingredientObj, connection)
                 .then()
             } else {
-              addToIngredientsTable({name: ingredientId, gluten: false, meat: false, dairy: false}, connection)
+              addToIngredientsTable({name: ingredientId, gluten: form['item' + ingredientId].includes('gluten'), meat: form['item' + ingredientId].includes('meat'), dairy: form['item' + ingredientId].includes('dairy')}, connection)
                 .then(id2 => {
                   id2 = id2[0]
                   addToJoinTable({recipe_id: id, ingredient_id: id2, quantity: form['quantity' + ingredientId], description: form['description' + ingredientId]}, connection)

@@ -61,7 +61,6 @@ router.post('/search', function (req, res) {
 })
 
 router.post('/add', function (req, res) {
-  console.log(req.body)
   db.addRecipe(req.body, req.app.get('connection'))
   res.redirect('/')
 })

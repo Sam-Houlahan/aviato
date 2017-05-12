@@ -9,7 +9,7 @@
 }
 .maintitle {
 font-size: 6rem;
-font-family: Montserrat;
+font-family: 'Lobster', cursive;
 text-align: center;
 color: white;
 }
@@ -73,4 +73,11 @@ div.search{
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
+}
+
+
+.header{
+  font-size: 18px;
+  color: #52527a;
+  margin-top: 10px;
 }

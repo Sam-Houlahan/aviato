@@ -37,7 +37,6 @@ router.get('/recipe/:id', function (req, res) {
 })
 
 router.post('/search', function (req, res) {
-
 // save the details of what was entered in search
   let str = '?'
   if (req.body.keyword) {
@@ -46,14 +45,14 @@ router.post('/search', function (req, res) {
   if (req.body.time) {
     str += 'time=' + req.body.time + '&'
   }
-  if (req.body.meatfree) {
-    str += 'meatfree' + req.body.meatfree + '&'
+  if (req.body.meat) {
+    str += 'meatfree=true' + '&'
   }
-  if (req.body.glutenfree) {
-    str += 'glutenfree' + req.body.glutenfree + '&'
+  if (req.body.gluten) {
+    str += 'glutenfree=true' + '&'
   }
-  if (req.body.dairyfree) {
-    str += 'dairyfree' + req.body.dairyfree + '&'
+  if (req.body.dairy) {
+    str += 'dairyfree=true' + '&'
   }
   str = str.substr(0, str.length - 1)  // Removes the last & or ?
 

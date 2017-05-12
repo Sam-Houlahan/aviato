@@ -1,10 +1,8 @@
-* {
-  /*border: thin solid black;*/
 
-}
 body{
-background-color : #cce6ff;
+background-color:#cce6ff;
 }
+
 .ingredientlist{
 list-style: none
 }
@@ -14,7 +12,7 @@ list-style: none
 }
 .maintitle {
 font-size: 6rem;
-font-family: Montserrat;
+font-family: 'Lobster', cursive;
 text-align: center;
 color: white;
 }
@@ -30,7 +28,7 @@ p {
   color: darkGrey;
 }
 .container {
-  background: #cce6ff;
+  background-color: #cce6ff;
   text-align: center;
   /*padding-bottom: 100px;*/
 }
@@ -78,4 +76,11 @@ div.search{
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
+}
+
+
+.header{
+  font-size: 18px;
+  color: #52527a;
+  margin-top: 10px;
 }

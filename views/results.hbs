@@ -7,9 +7,9 @@
         <div class="result">
             <a href="recipe/{{id}}"
                 <h4>{{title}}</h4>
-                {{#if meat}}Vegetarian{{/if}}
-                {{#if gluten}}Gluten Free{{/if}}
-                {{#if dairy}}Dairy Free{{/if}}
+                {{#if meat}}(V){{/if}}
+                {{#if gluten}}(GF){{/if}}
+                {{#if dairy}}(DF){{/if}}
                 <p>{{description}}</p>
                 <img class="resultsphoto" src='/{{photo}}'>
             </a>

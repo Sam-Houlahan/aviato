@@ -131,7 +131,7 @@ function addRecipe (form, connection) {
 
   recipeObj.title = form.title
   recipeObj.time = form.time
-  recipeObj.description = form.description
+  recipeObj.description = form.description2
   recipeObj.instructions = form.content
   recipeObj.photo = form.photo
   addToRecipesTable(recipeObj, connection)

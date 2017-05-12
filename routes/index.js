@@ -16,6 +16,7 @@ router.get('/add', (req, res) => {
 })
 
 router.get('/searchresults', function (req, res) {
+
   db.getRecipes(req.query, req.app.get('connection')) //  Use a function called getRecipes. function needs to return  an object containing recipes
     .then(function (recipes) {
       res.render('results', { recipes: recipes }) // render the results view with all the recipes
@@ -36,28 +37,33 @@ router.get('/recipe/:id', function (req, res) {
 })
 
 router.post('/search', function (req, res) {
-  res.redirect('/searchresults' + getQueryString(req.body))
 
-  function getQueryString (query) {
-    let str = '?'
-    if (query.keyword) {
-      str += 'keyword=' + query.keyword + '&'
-    }
-    if (query.time) {
-      str += 'time=' + query.time + '&'
-    }
-    if (query.meatfree) {
-      str += 'meatfree' + query.meatfree + '&'
-    }
-    if (query.glutenfree) {
-      str += 'glutenfree' + query.glutenfree + '&'
-    }
-    if (query.dairyfree) {
-      str += 'dairyfree' + query.dairyfree + '&'
-    }
-    str = str.substr(0, str.length - 1)
-    return str
+// save the details of what was entered in search
+  let str = '?'
+  if (req.body.keyword) {
+    str += 'keyword=' + req.body.keyword + '&'
   }
+  if (req.body.time) {
+    str += 'time=' + req.body.time + '&'
+  }
+  if (req.body.meatfree) {
+    str += 'meatfree' + req.body.meatfree + '&'
+  }
+  if (req.body.glutenfree) {
+    str += 'glutenfree' + req.body.glutenfree + '&'
+  }
+  if (req.body.dairyfree) {
+    str += 'dairyfree' + req.body.dairyfree + '&'
+  }
+  str = str.substr(0, str.length - 1)  // Removes the last & or ?
+
+  res.redirect('/searchresults' + str)
+})
+
+router.post('/add', function (req, res) {
+  console.log(req.body)
+  db.addRecipe(req.body, req.app.get('connection'))
+  res.redirect('/')
 })
 
 module.exports = router

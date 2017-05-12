@@ -19,11 +19,11 @@ function addIngredient(){
 
   let added = $.parseHTML(
     `<li>
-      ${$('#ingredientname').val()}
-      <input type="checkbox" value="${$('#ingredientname').val()}" name="ingredients" />
-      Description
+      <label>${$('#ingredientname').val()}</label><label>
+      <input type="checkbox" value="${$('#ingredientname').val()}" name="ingredients" /></label>
+      <label>Description</label>
       <input type="text" name="description" />
-      Quantity
+      <label>Quantity</label>
       <input type="text" name="quantity"  />
       <input type ="hidden" name="item${$('#ingredientname').val()}" value ="${checkboxValues}"/>
     </li>`

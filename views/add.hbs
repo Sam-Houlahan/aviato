@@ -1,5 +1,12 @@
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="functions.js" charset="utf-8"></script>
+<form class="add" action="/" method="post">
+
 {{> header}}
 <form class="add" action="/add" method="post">
+
 
   Title: <input type="text" name="title" >
   Time: <input type="text" name="time" >
@@ -10,13 +17,16 @@
 
   </div>
   <div id="ingredients">
-<br>Ingredients:<br><br>Name:  <br><input type="text" name="name">
-  <br><br><input type="checkbox" name="gluten" value="">gluten free?<br><br>
-  <input type="checkbox" name="dairy" value="">dairy free?<br><br>
-  <input type="checkbox" name="meat" value="">meat free?<br><br>
-  <button type="button" name="add" onclick ="">Add ingredient</button>
+<br>Ingredients:<br><br>Name:  <br><input type="text"  id ="ingredientname" name="name">
+  <br><br><input type="checkbox" id ="gluten" name="gluten" value="gluten">gluten free?<br><br>
+  <input type="checkbox" name="dairy"  id = "dairy"value="dairy">dairy free?<br><br>
+  <input type="checkbox" name="meat"  id ="meat" value="meat">meat free?<br><br>
+  <button type="button" name="add" id ='button'onclick ="addIngredient()">Add ingredient</button>
 
   </div>
+
+  Photo Url: <input type="text" name="photo" ><br>
+  Recipe Description: <input type="text" name="description" >
     <br><br>Instructions:<br><textarea rows="4" cols="50" name="content"></textarea>
         <br><button type="submit" name="submit">Submit Recipe</button>
 </form>

@@ -6,31 +6,79 @@ module.exports = {
 }
 
 function getRecipes (query, connection) {
+  console.log(query)
   return getEverything(connection)
     .then(table => {
-      console.log(table)
       if (query.keyword) {
-        table = table.filter(x => {
-          if (x.title) {
-            if (x.title.includes(query.keyword)) {
-              return true
-            }
-          }
-          if (x.description) {
-            if (x.description.includes(query.keyword)) {
-              return true
-            }
-          }
-          if (x.ingredientName) {
-            if (x.ingredientName.includes(query.keyword)) {
-              return true
-            }
-          }
-          return false
-        })
+        table = filterByKeyword(table, query.keyword)
       }
+      if (query.meatfree) {
+        table = filterByMeat(table)
+      }
+      if (query.dairyfree) {
+        table = filterByDairy(table)
+      }
+      if (query.glutenfree) {
+        table = filterByGluten(table)
+      }
+      table = filterDuplicates(table)
       return table
     })
+}
+
+function filterByKeyword (table, keyword) {
+  return table.filter(x => {
+    if (x.title) {
+      if (x.title.includes(keyword)) {
+        return true
+      }
+    }
+    if (x.description) {
+      if (x.description.includes(keyword)) {
+        return true
+      }
+    }
+    if (x.ingredientName) {
+      if (x.ingredientName.includes(keyword)) {
+        return true
+      }
+    }
+  })
+}
+
+function filterByGluten (table) {
+  let arr = table.filter(x => x.gluten)
+  for (var i = 0; i < arr.length; i++) {
+    table = table.filter(x => x.id !== arr[i].id)
+  }
+  return table
+}
+
+function filterByMeat (table) {
+  let arr = table.filter(x => x.meat)
+  for (var i = 0; i < arr.length; i++) {
+    table = table.filter(x => x.id !== arr[i].id)
+  }
+  return table
+}
+
+function filterByDairy (table) {
+  let arr = table.filter(x => x.dairy)
+  for (var i = 0; i < arr.length; i++) {
+    table = table.filter(x => x.id !== arr[i].id)
+  }
+  return table
+}
+
+function filterDuplicates (table) {
+  let results = []
+  for (var i = 0; i < table.length; i++) {
+    if (results.find(x => x.id === table[i].id)) {
+    } else {
+      results.push(table[i])
+    }
+  }
+  return results
 }
 
 function getRecipe (id, connection) {
@@ -89,7 +137,6 @@ function addRecipe (form, connection) {
   recipeObj.photo = form.photo
   addToRecipesTable(recipeObj, connection)
     .then(id => {
-      console.log("hi")
       id = id[0]
       getAllIngredients(connection)
         .then(table => {
@@ -132,5 +179,5 @@ function getEverything (connection) {
   return connection('recipe_ingredient')
   .join('ingredients', 'recipe_ingredient.ingredient_id', 'ingredients.id')
   .join('recipes', 'recipe_ingredient.recipe_id', 'recipes.id')
-  .select('recipes.*', 'ingredients.name as ingredientName')
+  .select('recipes.*', 'ingredients.name as ingredientName', 'ingredients.meat', 'ingredients.gluten', 'ingredients.dairy')
 }

@@ -1,8 +1,12 @@
 * {
   /*border: thin solid black;*/
-  background: #cce6ff;
+
 }
 
+.starter-template{
+  padding: 40px 15px;
+
+}
 .maintitle {
 font-size: 6rem;
 font-family: Montserrat;
@@ -12,4 +16,15 @@ color: white;
 
 .subtitle {
 color: black;
+}
+
+.searchtitle {
+  color: grey;
+}
+p {
+  color: darkGrey;
+}
+.container {
+  background: #cce6ff;
+  text-align: center;
 }

@@ -1,4 +1,15 @@
 * {
-  border: thin solid red;
-  background: blue;
+  /*border: thin solid black;*/
+  background: #cce6ff;
+}
+
+.maintitle {
+font-size: 6rem;
+font-family: Montserrat;
+text-align: center;
+color: white;
+}
+
+.subtitle {
+color: black;
 }

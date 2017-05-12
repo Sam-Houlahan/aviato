@@ -2,7 +2,12 @@
   /*border: thin solid black;*/
 
 }
-
+body{
+background-color : #cce6ff;
+}
+.ingredientlist{
+list-style: none
+}
 .starter-template{
   padding: 40px 15px;
 

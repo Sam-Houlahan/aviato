@@ -2,31 +2,56 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="functions.js" charset="utf-8"></script>
-<form class="add" action="/" method="post">
 
 {{> header}}
-<form class="add" action="/add" method="post">
+<div class= "container">
 
 
-  Title: <input type="text" name="title" >
-  Time: <input type="text" name="time" >
-  <div id="ingredientList">
+
+<form class="form-horizontal" action="/add" method="post">
+<div class="form-group">
+
+  <label for ="title"> Title:</label>
+   <input type="text" name="title" class ="form-control" placeholder ="Enter title" >
+   <label for ="Time"> Time:</label>
+  <input type="text" class ="form-control" name="time" placeholder="Enter cooking time " >
+</div>
+
+
+
+  <div id="ingredientList" class =" ingredientlist input-group-lg text-center">
+
     {{#each ingredients}}
-    <li>{{name}}<input type="checkbox" name="ingredients" value="{{id}}">Description<input type="text" name="description{{id}}" >Quantity<input type="text" name="quantity{{id}}"></li>
+    <li><label for ="ingredients">{{name}}</label><label>
+      <input type="checkbox" name="ingredients" value="{{id}}"></label>
+      <label for = "description"><br>Description:</label><input type="text" name="description{{id}}"  >
+      <label for ="quantity">Quantity:</label><input type="text" name="quantity{{id}}"></li>
     {{/each}}
-
   </div>
+
   <div id="ingredients">
-<br>Ingredients:<br><br>Name:  <br><input type="text"  id ="ingredientname" name="name">
-  <br><br><input type="checkbox" id ="gluten" name="gluten" value="gluten">gluten free?<br><br>
-  <input type="checkbox" name="dairy"  id = "dairy"value="dairy">dairy free?<br><br>
-  <input type="checkbox" name="meat"  id ="meat" value="meat">meat free?<br><br>
-  <button type="button" name="add" id ='button'onclick ="addIngredient()">Add ingredient</button>
+
+<label>Add Ingredients:</label>  <br><label for ="name">Name:</label><input type="text"  id ="ingredientname" name="name" placeholder ="Enter ingredient to add" class = "form-control">
+  <br><br>
+  <div class="checkbox">
+  <label class="checkbox-inline"><input type="checkbox" id ="gluten" name="gluten" value="gluten">gluten free?</label>
+
+
+<label class="checkbox-inline"><input type="checkbox" name="dairy"  id = "dairy"value="dairy">dairy free?</label>
+
+
+  <label class="checkbox-inline"><input type="checkbox" name="meat"  id ="meat" value="meat">meat free?</label>
+
+
+  <br><br><button type="button" class="btn btn-primary btn-lg btn-block" name="add" id ='button'onclick ="addIngredient()">Add ingredient</button>
 
   </div>
 
-  Photo Url: <input type="text" name="photo" ><br>
-  Recipe Description: <input type="text" name="description" >
-    <br><br>Instructions:<br><textarea rows="4" cols="50" name="content"></textarea>
-        <br><button type="submit" name="submit">Submit Recipe</button>
+  <br><label for ="photo"> Photo Url:</label> <input type="text" name="photo" placeholder ="Enter photo url" class = "form-control" ><br>
+  <label for ="recipe">Recipe Description:</label> <input type="text" name="description" placeholder ="Enter recipe description" class ="form-control" >
+    <label for="instructions">Instructions:</label><textarea rows="4" cols="50" name="content" class ="form-control"></textarea>
+        <br><button type="submit" name="submit" class ="btn btn-primary btn-lg btn-block ">Submit Recipe</button><br>
+
 </form>
+
+</div>

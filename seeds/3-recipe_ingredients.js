@@ -16,7 +16,6 @@ exports.seed = function (knex, Promise)  {
     knex('recipe_ingredient').insert({recipe_id:2, ingredient_id:1, quantity:'3-4', description:'minced'}),
     knex('recipe_ingredient').insert({recipe_id:2, ingredient_id:2, quantity:'1/4 cup', description:'cubed'}),
     knex('recipe_ingredient').insert({recipe_id:2, ingredient_id:3, quantity:'1/4 cup', description:'oil'}),
-    knex('recipe_ingredient').insert({recipe_id:2, ingredient_id:4, quantity:'1 pound', description:'uncooked,peeled and deveined'}),
     knex('recipe_ingredient').insert({recipe_id:2, ingredient_id:5, quantity:'1/4 cup', description:'juice'}),
     knex('recipe_ingredient').insert({recipe_id:2, ingredient_id:6, quantity:'1/2 teaspoon', description:'ground'}),
     knex('recipe_ingredient').insert({recipe_id:2, ingredient_id:7, quantity:'1/4 teaspoon', description:'dried'}),

@@ -7,6 +7,15 @@ router.get('/', function (req, res) {
   res.render('home')
 })
 
+
+router.get('/add', (req,res) => {
+  db.getAllIngredients(req.app.get('connection'))
+  .then((result) => {
+    const ingredient = result
+    res.render('add',{ingredients:ingredient})
+  })
+})
+
 router.get('/searchresults', function (req, res) {
   db.getRecipes(req.query, req.app.get('connection')) //  Use a function called getRecipes. function needs to return  an object containing recipes
     .then(function (recipes) {

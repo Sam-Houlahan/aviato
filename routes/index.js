@@ -3,16 +3,6 @@ var router = express.Router()
 
 var db = require('../db')
 
-// router.get('/', function (req, res) {
-//   db.getUsers(req.app.get('connection'))
-//     .then(function (users) {
-//       res.render('index', { users: users })
-//     })
-//     .catch(function (err) {
-//       res.status(500).send('DATABASE ERROR: ' + err.message)
-//     })
-// })
-
 router.get('/', function (req, res) {
   res.render('home')
 })
@@ -26,7 +16,8 @@ router.get('/add', (req, res) => {
 })
 
 router.get('/searchresults', function (req, res) {
-  db.getRecipes(req.query, req.app.get('connection')) //  use a function called getRecipes. function needs to return  an object containing recipes
+
+  db.getRecipes(req.query, req.app.get('connection')) //  Use a function called getRecipes. function needs to return  an object containing recipes
     .then(function (recipes) {
       res.render('results', { recipes: recipes }) // render the results view with all the recipes
     })
@@ -46,6 +37,7 @@ router.get('/recipe/:id', function (req, res) {
 })
 
 router.post('/search', function (req, res) {
+
 // save the details of what was entered in search
   let str = '?'
   if (req.body.keyword) {

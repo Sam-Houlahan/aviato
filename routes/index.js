@@ -7,12 +7,11 @@ router.get('/', function (req, res) {
   res.render('home')
 })
 
-
-router.get('/add', (req,res) => {
+router.get('/add', (req, res) => {
   db.getAllIngredients(req.app.get('connection'))
   .then((result) => {
     const ingredient = result
-    res.render('add',{ingredients:ingredient})
+    res.render('add', {ingredients: ingredient})
   })
 })
 
